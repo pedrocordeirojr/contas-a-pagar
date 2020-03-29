@@ -1,0 +1,45 @@
+package com.contacorrente.contaapagar.model;
+
+import lombok.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name="conta-a-pagar")
+@Builder
+public class ContaAPagarEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name="nome")
+    @NotNull
+    private String nome;
+
+    @Column(name="valorOriginal")
+    @NotNull
+    private Float valorOriginal;
+
+    @Column(name="valorCorrigido")
+    @NotNull
+    private Float valorCorrigido;
+
+    @Column(name="quantidadeDiasAtraso")
+    @NotNull
+    private Integer quantidadeDiasAtraso;
+
+    @Column(name="dataPagamento")
+    @NotNull
+    private Date dataPagamento;
+
+    @Column(name="dataVencimento")
+    @NotNull
+    private Date dataVencimento;
+}
+
