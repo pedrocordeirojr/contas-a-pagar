@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -11,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="conta-a-pagar")
+@Table(name="contaAPagar")
 @Builder
 public class ContaAPagarEntity {
     @Id
@@ -36,10 +37,21 @@ public class ContaAPagarEntity {
 
     @Column(name="dataPagamento")
     @NotNull
-    private Date dataPagamento;
+    private LocalDate dataPagamento;
 
     @Column(name="dataVencimento")
     @NotNull
-    private Date dataVencimento;
+    private LocalDate dataVencimento;
+
+    @Column(name="regra")
+    private String regra;
+
+    @Column(name="jurosDia")
+    private Float jurosDia;
+
+    @Column(name="multa")
+    private Float multa;
+
+
 }
 

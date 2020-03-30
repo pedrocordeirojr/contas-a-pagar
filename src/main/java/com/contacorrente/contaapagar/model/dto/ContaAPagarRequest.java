@@ -3,6 +3,7 @@ package com.contacorrente.contaapagar.model.dto;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 @Getter
 @Setter
@@ -15,7 +16,7 @@ public class ContaAPagarRequest {
     @NotNull
     private Float valorOriginal;
     @NotNull
-    private Date dataVencimento;
+    private LocalDate dataVencimento;
     @NotNull
-    private Date dataPagamento;
+    private LocalDate dataPagamento;
 }

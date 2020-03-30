@@ -3,6 +3,7 @@ package com.contacorrente.contaapagar.model.dto;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -20,5 +21,5 @@ public class ContaAPagarResponse {
     @NotNull
     private Integer quantidadeDiasAtraso;
     @NotNull
-    private Date dataPagamento;
+    private LocalDate dataPagamento;
 }
