@@ -15,6 +15,7 @@ public class ContasAPagarController {
     @Autowired
     private ContasAPagarServiceImpl contasAPagarService;
 
+    @CrossOrigin
     @PostMapping
     public ContaAPagarResponse incluirConta(@RequestBody ContaAPagarRequest contaAPagarRequest){
         return ContasAPagarEntityMapper.from(
@@ -25,6 +26,7 @@ public class ContasAPagarController {
     }
 
     @GetMapping
+    @CrossOrigin
     public List<ContaAPagarResponse> listarContas(){
         return ContasAPagarEntityMapper.from(
                 contasAPagarService.listarContas()

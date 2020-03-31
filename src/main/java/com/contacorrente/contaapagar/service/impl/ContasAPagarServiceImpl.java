@@ -7,6 +7,7 @@ import com.contacorrente.contaapagar.service.ContasAPagarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -75,8 +76,9 @@ public class ContasAPagarServiceImpl implements ContasAPagarService {
             contaAPagarEntity.setValorCorrigido(contaAPagarEntity.getValorOriginal());
             return contaAPagarEntity;
         }
+        Long qtdDiasAtraso = ChronoUnit.DAYS.between(contaAPagarEntity.getDataVencimento(),contaAPagarEntity.getDataPagamento());
 
-        contaAPagarEntity.setQuantidadeDiasAtraso(contaAPagarEntity.getDataPagamento().compareTo(contaAPagarEntity.getDataVencimento()));
+        contaAPagarEntity.setQuantidadeDiasAtraso((qtdDiasAtraso != null)? qtdDiasAtraso.intValue() : 0);
 
         if(contaAPagarEntity.getQuantidadeDiasAtraso() <= 3) {
             contaAPagarEntity.setRegra(REGRA_ATE_TRES_DIAS);
